@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+ 
+<html lang="pt-br">
+<!--
+ http://semver.org/ : site com definição de versionamento semântico
+ -->
+ 
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery - Aula 01</title>
+	</head>
+	<body>
+		<h1 id="titulo">Título</h1>
+		<p id="paragrafo">Par&aacute;grafo com <font face="courier"><b>negrito</b></font>, <font face="verdana"><i>primeiro itálico</i></font> e <i>último itálico</i></p>
+		<p id="paragrafo2"><font face="arial bold">Só <i>um itálico</i></font></p>
+		
+		<script type="text/javascript" src="jquery-1.9.1.js"></script>
+
+		<script>
+			console.log($('#paragrafo').html());
+			console.log($('#paragrafo').text());
+			console.log($('#paragrafo > i').text());
+			console.log($('i:last').text());
+			console.log($('#paragrafo > i:last').text());
+			console.log($('font').html());
+			console.log($('font[face|=verdana]').html());
+			
+			var aux = $('#paragrafo > i');
+			console.log(typeof(aux));
+			console.log(aux);
+		</script>
+	</body>
+</html>

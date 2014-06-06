@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+ 
+<html lang="pt-br">
+<!--
+ http://semver.org/ : site com definição de versionamento semântico
+ -->
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery - Aula 03</title>
+		<style type="text/css">
+			.item { color: red; }
+		</style>
+	</head>
+		
+	<body>
+
+		<p><div id="texto1">Texto original</div><input type="Button" value="Chama Ajax (simples)" onclick="chama_ajax_simples()"</input></p>
+		<hr/>
+		<p>
+			<div id="texto2">Texto original</div>
+			<input type="Button" value="Chama Ajax (complexo OK)" onclick="chama_ajax_complexo('oi.php')"</input>
+			<input type="Button" value="Chama Ajax (complexo erro)" onclick="chama_ajax_complexo('oy.php')"</input>
+		</p>
+		<hr/>
+		<p>
+			<input id="xou_body" type="button" onclick="xou_bode()" value="Show Body"></input>
+		</p>
+		<img id="bode" style="display: none" src="bode.jpg"/>
+		
+		<script type="text/javascript" src="jquery-1.9.1.js"></script>
+
+		<script type="text/javascript">
+		
+			$(document).ready(function(){
+			});
+		
+			function xou_bode() {
+				img = $('#bode');
+				if ( img.is(":visible") ) {
+					img.hide();
+					$('#xou_body').attr('value', 'Xou bode');
+				}	
+				else {
+					img.show();
+					$('#xou_body').attr('value', 'Xai bode');
+				}
+//				console.log($(img).css('display'));
+			}
+
+			function chama_ajax_simples() {
+				$('#texto1').html("Peraí...");
+			
+				$('#texto1').load('oi.php');
+			}
+
+			function chama_ajax_complexo(pagina) {
+			
+				$('#texto2').html("Peraí...");
+			
+				$.ajax({
+					type: 'post',
+					url: pagina,
+					data: "nome=Fabiano&sobrenome=Martins",
+					success: function(msg){ $('#texto2').html(msg); },
+					error: function(a, b, c) { alert("parametro 1:" + a + "\nparametro 2:" + b + "\nparametro 3:" + c); }
+				});
+			}
+		</script>
+
+	</body>
+
+</html>

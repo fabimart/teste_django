@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+		<style>
+		#lixeira {
+			border: 1px solid black;
+			background-color: gray;
+		}
+		</style>
+		<script type="text/javascript">
+		$().ready(function () {
+			$('#items').on('click', 'li', null, function () {
+				alert('oi');
+			});		
+		
+			$('#btn0').click(function () {
+				$('#items').append('<li>abc</li>');
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn0">
+		<input type="button" id="btn">
+		Items
+		<ol id="items">
+			<li>abc <a href="#">Excluir</a></li>
+			<li>def <a href="#">Excluir</a></li>
+			<li>ghi <a href="#">Excluir</a></li>
+		</ol>
+		<br>
+		Lixeira
+		<ul id="lixeira">
+		</ul>
+	</body>
+</html>
+
+
+
+
+
+
+

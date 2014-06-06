@@ -1,0 +1,7 @@
+p = {
+	produtos: [
+		{'nome': 'TV de plasma', 'valor': 1000},
+		{'nome': 'Forno Microondas', 'valor': 400},
+		{'nome': 'DVD Player', 'valor': 200},
+	]
+};

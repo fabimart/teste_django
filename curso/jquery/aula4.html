@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+ 
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery - Aula 04 (tratamento de eventos)</title>
+		<link type="text/css" src="jquery-ui-1.10.2/themes/base/minified/jquery-ui.min.css"></link>
+	</head>
+		
+	<body>
+
+		<p>
+			<!-- Tratamento via click, setando evento inicialmente para os elementos atuais, e a cada criação de elemento -->
+			<div>
+				<input id="insere_ol" type="Button" value="Insere no OL"</input>
+				<ol id="id_ol">
+					<li>linha 1</li>
+					<li>linha 2</li>
+					<li>linha 3</li>
+				</ol>
+			</div>
+				
+			<!-- Tratamento via on, setando tratador de evento para todos elementos (atuais e futuros) da lista -->
+			<div>
+				<input id="insere_ul" type="Button" value="Insere no UL"</input>
+				<ul id="id_ul">
+					<li>linha 1</li>
+					<li>linha 2</li>
+					<li>linha 3</li>
+				</ul>
+			</div>
+		</p>
+
+		<hr/>
+		<p>
+			<input id="xou_body" type="button" onclick="xou_bode()" value="Show Body"></input>
+			<img id="bode" style="display: none" src="bode.jpg"/>
+		</p>
+		
+		<script type="text/javascript" src="jquery-1.9.1.js"></script>
+
+		<script type="text/javascript">
+		
+			function insere(lista) {
+				$(lista).append("<li>linha X</li>");
+			}
+		
+			$(document).ready(function(){
+			
+				$("#insere_ol").click(function(){
+					insere("ol");
+					$("#id_ol > li:last").click(function(){alert("ol");});
+				});
+				$("#id_ol > li").click(function(){alert("ol");});
+				
+				$("#insere_ul").click(function(){insere("ul");});
+				$("#id_ul").on('click', 'li', null, function(){alert("ul");});
+			});
+		
+			function xou_bode() {
+				img = $('#bode');
+				if ( img.is(":visible") ) {
+					img.hide();
+					$('#xou_body').attr('value', 'Xou bode');
+				}	
+				else {
+					img.show();
+					$('#xou_body').attr('value', 'Xai bode');
+				}
+			}		
+		</script>
+
+	</body>
+
+</html>

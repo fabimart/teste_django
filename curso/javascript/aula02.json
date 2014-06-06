@@ -1,0 +1,6 @@
+x = {
+	"dados" : [
+		{ "nome": "Javascript Avançado", "ch": 20, },
+		{ "nome": "PHP", "ch": 30, },
+		]
+};

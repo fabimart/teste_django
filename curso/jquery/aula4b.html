@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+ 
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery - Aula 04 (jQuery UI)</title>
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.2/themes/base/minified/jquery-ui.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="aula4b.css"></link>
+	</head>
+		
+	<body>
+
+		<table>
+			<tr>
+				<td>
+					<img src="s4.jpg" class="produto">
+					<div>R$ 12,00</div>
+				</td>
+				<td>
+					<img src="ps4.jpg" class="produto">
+					<div>R$ 5.000,00</div>
+				</td>
+			</tr>
+		</table>
+		Carrinho:
+		<div id="carrinho">
+			
+		</div>
+		<div>
+		Subtotal: <span id="subtotal">R$ 0,00</span>
+		</div>
+		<hr/>
+		<p>
+			<input id="xou_body" type="button" onclick="xou_bode()" value="Show Body"></input>
+			<img id="bode" style="display: none" src="bode.jpg"/>
+		</p>
+		<script type="text/javascript" src="jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.10.2/ui/minified/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="aula4b.js"></script>
+		<script type="text/javascript">
+			function xou_bode() {
+				img = $('#bode');
+				if ( img.is(":visible") ) {
+					img.hide();
+					$('#xou_body').attr('value', 'Xou bode');
+				}	
+				else {
+					img.show();
+					$('#xou_body').attr('value', 'Xai bode');
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

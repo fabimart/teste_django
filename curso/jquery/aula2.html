@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+ 
+<html lang="pt-br">
+<!--
+ http://semver.org/ : site com definição de versionamento semântico
+ -->
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery - Aula 02</title>
+		<style type="text/css">
+			.item { color: red; }
+		</style>
+	</head>
+		
+	<body>
+	
+		<input type="button" value="Trocor car"/>
+		
+		<ul>
+			<li style="font-weight: bold;">abc</li>
+			<li>c<i>d</i>e</li>
+			<li><a href="">fgh</a></li>
+		</ul>
+	
+		<img src="bode.jpg"/>
+		
+		<script type="text/javascript" src="jquery-1.9.1.js"></script>
+
+		<script type="text/javascript">
+		
+			// Gatilho para executar a função anônima quando a página terminar de ser carregada
+			// Obs.: ao invés de $(document), pode-se usar também $()
+			$(document).ready(function(){
+				alert("deu!");
+				
+				// Adiciona um evento "onclick" no botão
+				$('input').click(function() {
+					el = $('li:first');
+					el.toggleClass('item');
+				});
+				
+				// Adiciona um evento "onclick" na última linha, fazendo com que o href (necessário para gerar o coisinha de clicável) não recarregue a página. 
+				$('li:last').click(function(event) {
+					event.preventDefault(); // Dá no mesmo fazer isso e terminar a rotina com "return false;"
+					alert('clicou no último');
+					
+					event.stopPropagation();	// Evita que o onclick() do pai seja chamado
+				});
+				
+				// Adiciona um evento "onclick" na lista, fazendo com que o href (necessário para gerar o coisinha de clicável) não recarregue a página. 
+				$('ul').click(function(event) {
+					event.preventDefault(); // Dá no mesmo fazer isso e terminar a rotina com "return false;"
+					alert('clicou na lista');
+				});
+				
+				$('i').hover(function(event){
+					$(this).css('color','red');
+				},
+				function(){
+					$(this).css('color','yellow');
+				});
+			});
+		
+			// Acesso a todos tags "li" do html
+			$('li').each(function(){
+				console.log($(this));
+				console.log(this);
+			});
+			
+			
+			//
+			fw = $('li:first').css('font-weight');
+			console.log(fw);
+//			$('li:first').css('color', 'red');
+			
+//			$('li:first').addClass('item');
+
+		</script>
+
+	</body>
+
+</html>
